@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+
+<html >
+
+<body style="align-items:center">
+    
+    @using (Html.BeginForm("UploadExcel", "Emp", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <center>
+
+        <div style="margin:250px">
+            <h2>Upload File</h2><br> <br />
+
+            <input type="file" id="file" name="file" /><br> <br />
+            <input type="submit" value="Upload File" class="btn btn-success" /><br />
+            <h5 class="alert-danger">@ViewBag.Message</h5>
+        </div>
+        
+    </center>
+
+    <div>
+        
+
+    </div>
+    }
+</body>
+</html> 

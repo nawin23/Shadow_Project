@@ -1,0 +1,101 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<EmpMVC.Models.EmpFetchMVC>
+
+<h2 style="padding-left: 35%;  font-family: 'Montserrat'; font-style: normal; margin-top:80px">Employee Details</h2>
+
+@using (Html.BeginForm("Search", "Emp", FormMethod.Get))
+{
+    <p style="text-align:left">
+        <h4>Find by PS number</h4> @Html.TextBox("PSnumber", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" class="btn btn-success" />
+    </p>
+}
+
+
+<table class="table">
+
+    <thead>
+        <tr style="background-color:black;color:white">
+            <th>
+                @Html.DisplayNameFor(model => model.First().Psno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Employee_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Current_skill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Expected_Training)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Expected_Training1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Expected_Training2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Expected_Training3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+
+                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
+                    @Html.DisplayFor(modelItem => item.Psno)
+                </td>
+                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
+                    @Html.DisplayFor(modelItem => item.Employee_Name)
+                </td>
+                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
+                    @Html.DisplayFor(modelItem => item.Current_skill)
+                </td>
+                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
+                    @Html.DisplayFor(modelItem => item.Expected_Training)
+                </td>
+                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
+                    @Html.DisplayFor(modelItem => item.Expected_Training1)
+                </td>
+                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
+                    @Html.DisplayFor(modelItem => item.Expected_Training2)
+                </td>
+                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
+                    @Html.DisplayFor(modelItem => item.Expected_Training3)
+                </td>
+
+                <td>
+                    <div style="background-color: red; color: white; text-align: center; text-decoration: none; display: inline-block; ">
+
+                        <button type="button" class="btn-danger " >@Html.ActionLink("Remove the Record", "Delete", new { id = item.Psno }, new {style="color:white"})</button>
+
+
+                       
+                    </div>
+                </td>
+
+            </tr>
+
+        </tbody>
+    }
+</table>
+@if (TempData["result3"] != null)
+{
+    <script type="text/javascript">
+
+                 alert("Record Is Deleted Successfully");
+    </script>
+
+}
+@Html.PagedListPager(Model, Page => Url.Action("Fetch", new { Page }))

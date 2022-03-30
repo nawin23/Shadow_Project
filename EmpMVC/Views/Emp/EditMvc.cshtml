@@ -1,0 +1,118 @@
+﻿@model EmpMVC.Models.EmpEditModel
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="padding:3%;padding-left:20%">
+        <h2 style="padding-left: 23%; margin-bottom: 5%; font-family: 'Montserrat'; font-style: normal "><b>Update Employee</b></h2>
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Psno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Psno, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter username ", @id = "userps", onkeyup = "UserCheck()" } })
+                @Html.ValidationMessageFor(model => model.Psno, "", new { @class = "text-danger" })
+            </div>
+                    <span id="spaner"> </span>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Employee_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Employee_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter employee name " } })
+                @Html.ValidationMessageFor(model => model.Employee_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter emailId " } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Current_skill, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Current_skill, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter current skills " } })
+                @Html.ValidationMessageFor(model => model.Current_skill, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Expected_Training, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Expected_Training, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter expected training " } })
+                @Html.ValidationMessageFor(model => model.Expected_Training, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Expected_Training1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Expected_Training1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter expected training1" } })
+                @Html.ValidationMessageFor(model => model.Expected_Training1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Expected_Training2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Expected_Training2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter expected training2" } })
+                @Html.ValidationMessageFor(model => model.Expected_Training2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Expected_Training3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Expected_Training3, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter expected training3" } })
+                @Html.ValidationMessageFor(model => model.Expected_Training3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style="padding-left:10%">
+                <input type="submit" value="Update Details" class="btn btn-success" />
+                <h5>@ViewBag.Message</h5>
+            </div>
+        </div>
+        <div>
+            <label style="margin-left:170px;margin-bottom:130px;font-family:'Segoe UI'">Back to list?</label>
+
+            @Html.ActionLink("Click here", "Fetch")
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    function UserCheck() {
+
+        $.post("@Url.Action("CheckUpdatePSAvailability", "Emp")",
+            {
+                userdata: $("#userps").val()
+            },
+        function (data) {
+            if (data == 0) {
+                $("#spaner").html('<font color="Red">PS Number doesnt exist </font>');
+                $("#userps").css("border-color", "Green","text-align","center");
+
+            }
+            else {
+                $("#spaner").html('<font color="Green" </font>');
+                $("#userps").css("border-color", "Red");
+            }
+        });
+    }
+</script>

@@ -1,0 +1,77 @@
+﻿@model EmpMVC.Models.EmpsignupModel
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h1 style="text-align:center;margin-top:120px"><b>Global Engineering Academy</b></h1>
+
+    <div class="form-horizontal" style="padding:5%;padding-left:30%">
+
+        <h3 style="padding-left: 28%; margin-bottom: 5%; font-family: 'Montserrat'; font-style: normal "><b>Sign-Up</b></h3>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label text - white col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your username", @id = "userps", onkeyup = "UserCheck()" } })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+        </div>
+        <span id="spaner" style="text-align:center;"> </span>
+    </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Repassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your password again" } })
+                @Html.ValidationMessageFor(model => model.Repassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-left:13%">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+        <div>
+            <label style="margin-left:130px;margin-bottom:130px;font-family:'Segoe UI'">Have already an account?  </label>
+            @Html.ActionLink("Login here", "LoginDetails")
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    function UserCheck() {
+
+        $.post("@Url.Action("CheckUsernameAvailability", "Account")",
+            {
+                userdata: $("#userps").val()
+            },
+        function (data) {
+            if (data == 0) {
+                $("#spaner").html('<font color="Green">Username is avaiable</font>');
+                $("#userps").css("border-color", "Green");
+
+            }
+            else {
+                $("#spaner").html('<font color="Red">Username is not avaiable</font>');
+                $("#userps").css("border-color", "Red");
+               
+            }
+        });
+    }
+</script>

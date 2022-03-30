@@ -1,0 +1,56 @@
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EmpDAL.dll.config
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EmpDAL.dll
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EmpDAL.pdb
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EmpDTO.dll
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EntityFramework.dll
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EmpDTO.pdb
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EntityFramework.xml
+D:\Shadow proj\New\StepUp\EmpDAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Shadow proj\New\StepUp\EmpDAL\obj\Debug\EmpDAL.csproj.AssemblyReference.cache
+D:\Shadow proj\New\StepUp\EmpDAL\obj\Debug\EmpDAL.csproj.CoreCompileInputs.cache
+D:\Shadow proj\New\StepUp\EmpDAL\obj\Debug\EmpDAL.csproj.CopyComplete
+D:\Shadow proj\New\StepUp\EmpDAL\obj\Debug\EmpDAL.dll
+D:\Shadow proj\New\StepUp\EmpDAL\obj\Debug\EmpDAL.pdb
+D:\orginal file\orginal\EmpDAL\bin\Debug\EmpDAL.dll.config
+D:\orginal file\orginal\EmpDAL\bin\Debug\EmpDAL.dll
+D:\orginal file\orginal\EmpDAL\bin\Debug\EmpDAL.pdb
+D:\orginal file\orginal\EmpDAL\bin\Debug\EmpDTO.dll
+D:\orginal file\orginal\EmpDAL\bin\Debug\EntityFramework.dll
+D:\orginal file\orginal\EmpDAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\orginal file\orginal\EmpDAL\bin\Debug\EmpDTO.pdb
+D:\orginal file\orginal\EmpDAL\bin\Debug\EntityFramework.xml
+D:\orginal file\orginal\EmpDAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\orginal file\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.AssemblyReference.cache
+D:\orginal file\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.CoreCompileInputs.cache
+D:\orginal file\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.CopyComplete
+D:\orginal file\orginal\EmpDAL\obj\Debug\EmpDAL.dll
+D:\orginal file\orginal\EmpDAL\obj\Debug\EmpDAL.pdb
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EmpDAL.dll.config
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EmpDAL.dll
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EmpDAL.pdb
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EmpDTO.dll
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EntityFramework.dll
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EmpDTO.pdb
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EntityFramework.xml
+D:\orginal file\orginal\orginal\EmpDAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\orginal file\orginal\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.AssemblyReference.cache
+D:\orginal file\orginal\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.CoreCompileInputs.cache
+D:\orginal file\orginal\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.CopyComplete
+D:\orginal file\orginal\orginal\EmpDAL\obj\Debug\EmpDAL.dll
+D:\orginal file\orginal\orginal\EmpDAL\obj\Debug\EmpDAL.pdb
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EmpDAL.dll.config
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EmpDAL.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EmpDAL.pdb
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EmpDTO.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EntityFramework.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EmpDTO.pdb
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EntityFramework.xml
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.AssemblyReference.cache
+D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.CoreCompileInputs.cache
+D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.CopyComplete
+D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.dll
+D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.pdb

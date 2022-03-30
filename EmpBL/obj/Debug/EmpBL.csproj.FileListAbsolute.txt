@@ -1,0 +1,56 @@
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EmpBL.dll
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EmpBL.pdb
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EmpDAL.dll
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EmpDTO.dll
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EntityFramework.dll
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EmpDAL.pdb
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EmpDAL.dll.config
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EmpDTO.pdb
+D:\Shadow proj\New\StepUp\EmpBL\bin\Debug\EntityFramework.xml
+D:\Shadow proj\New\StepUp\EmpBL\obj\Debug\EmpBL.csproj.AssemblyReference.cache
+D:\Shadow proj\New\StepUp\EmpBL\obj\Debug\EmpBL.csproj.CoreCompileInputs.cache
+D:\Shadow proj\New\StepUp\EmpBL\obj\Debug\EmpBL.csproj.CopyComplete
+D:\Shadow proj\New\StepUp\EmpBL\obj\Debug\EmpBL.dll
+D:\Shadow proj\New\StepUp\EmpBL\obj\Debug\EmpBL.pdb
+D:\orginal file\orginal\EmpBL\bin\Debug\EmpBL.dll
+D:\orginal file\orginal\EmpBL\bin\Debug\EmpBL.pdb
+D:\orginal file\orginal\EmpBL\bin\Debug\EmpDAL.dll
+D:\orginal file\orginal\EmpBL\bin\Debug\EmpDTO.dll
+D:\orginal file\orginal\EmpBL\bin\Debug\EntityFramework.dll
+D:\orginal file\orginal\EmpBL\bin\Debug\EmpDAL.pdb
+D:\orginal file\orginal\EmpBL\bin\Debug\EmpDAL.dll.config
+D:\orginal file\orginal\EmpBL\bin\Debug\EmpDTO.pdb
+D:\orginal file\orginal\EmpBL\bin\Debug\EntityFramework.xml
+D:\orginal file\orginal\EmpBL\obj\Debug\EmpBL.csproj.AssemblyReference.cache
+D:\orginal file\orginal\EmpBL\obj\Debug\EmpBL.csproj.CoreCompileInputs.cache
+D:\orginal file\orginal\EmpBL\obj\Debug\EmpBL.csproj.CopyComplete
+D:\orginal file\orginal\EmpBL\obj\Debug\EmpBL.dll
+D:\orginal file\orginal\EmpBL\obj\Debug\EmpBL.pdb
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EmpBL.dll
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EmpBL.pdb
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EmpDAL.dll
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EmpDTO.dll
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EntityFramework.dll
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EmpDAL.pdb
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EmpDAL.dll.config
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EmpDTO.pdb
+D:\orginal file\orginal\orginal\EmpBL\bin\Debug\EntityFramework.xml
+D:\orginal file\orginal\orginal\EmpBL\obj\Debug\EmpBL.csproj.AssemblyReference.cache
+D:\orginal file\orginal\orginal\EmpBL\obj\Debug\EmpBL.csproj.CoreCompileInputs.cache
+D:\orginal file\orginal\orginal\EmpBL\obj\Debug\EmpBL.csproj.CopyComplete
+D:\orginal file\orginal\orginal\EmpBL\obj\Debug\EmpBL.dll
+D:\orginal file\orginal\orginal\EmpBL\obj\Debug\EmpBL.pdb
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EmpBL.dll
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EmpBL.pdb
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EmpDAL.dll
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EmpDTO.dll
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EntityFramework.dll
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EmpDAL.pdb
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EmpDAL.dll.config
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EmpDTO.pdb
+D:\orginal file\orginal final\orginal\EmpBL\bin\Debug\EntityFramework.xml
+D:\orginal file\orginal final\orginal\EmpBL\obj\Debug\EmpBL.csproj.AssemblyReference.cache
+D:\orginal file\orginal final\orginal\EmpBL\obj\Debug\EmpBL.csproj.CoreCompileInputs.cache
+D:\orginal file\orginal final\orginal\EmpBL\obj\Debug\EmpBL.csproj.CopyComplete
+D:\orginal file\orginal final\orginal\EmpBL\obj\Debug\EmpBL.dll
+D:\orginal file\orginal final\orginal\EmpBL\obj\Debug\EmpBL.pdb

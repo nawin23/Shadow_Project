@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StepUpModelStoreContainer" CdmEntityContainer="StepUpContext">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="StepUpModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Psno" ColumnName="Psno" />
+          <ScalarProperty Name="employee_name" ColumnName="employee_name" />
+          <ScalarProperty Name="email_id" ColumnName="email_id" />
+          <ScalarProperty Name="current_skills" ColumnName="current_skills" />
+          <ScalarProperty Name="excepted_training" ColumnName="excepted_training" />
+          <ScalarProperty Name="excepted_1" ColumnName="excepted_1" />
+          <ScalarProperty Name="excepted_2" ColumnName="excepted_2" />
+          <ScalarProperty Name="excepted_3" ColumnName="excepted_3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginUsers">
+      <EntityTypeMapping TypeName="StepUpModel.LoginUser">
+        <MappingFragment StoreEntitySet="LoginUser">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="uspAddEmployee" FunctionName="StepUpModel.Store.uspAddEmployee" />
+    <FunctionImportMapping FunctionImportName="uspDeleteEmp" FunctionName="StepUpModel.Store.uspDeleteEmp" />
+    <FunctionImportMapping FunctionImportName="uspLogin" FunctionName="StepUpModel.Store.uspLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StepUpModel.uspLogin_Result">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspLogindetails" FunctionName="StepUpModel.Store.uspLogindetails" />
+    <FunctionImportMapping FunctionImportName="uspUpdateEmp" FunctionName="StepUpModel.Store.uspUpdateEmp" />
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="StepUpModel.Faculty">
+        <MappingFragment StoreEntitySet="Faculty">
+          <ScalarProperty Name="Track" ColumnName="Track" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PsNumber" ColumnName="PsNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

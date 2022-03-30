@@ -1,0 +1,27 @@
+﻿@model List<SelectListItem>
+@{
+    ViewBag.Title = "Drop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body style="margin:200px">
+        <h2>Select the Faculty for course enrollment</h2>
+
+        @using (Html.BeginForm("Drop", "Emp", FormMethod.Post))
+        {
+            @Html.DropDownList("ddlCustomers", Model)
+            <br />
+            <br />
+            <input type="submit" value="Submit" class="btn btn-success" />
+        }
+
+    </body>
+</center>
+</html>

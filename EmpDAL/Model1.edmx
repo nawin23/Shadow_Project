@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StepUpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Psno" />
+          </Key>
+          <Property Name="Psno" Type="int" Nullable="false" />
+          <Property Name="employee_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="current_skills" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="excepted_training" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="excepted_1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="excepted_2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="excepted_3" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="PsNumber" />
+          </Key>
+          <Property Name="PsNumber" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Track" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="uspAddEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Psno" Type="int" Mode="In" />
+          <Parameter Name="employee_name" Type="varchar" Mode="In" />
+          <Parameter Name="email_id" Type="varchar" Mode="In" />
+          <Parameter Name="current_skill" Type="varchar" Mode="In" />
+          <Parameter Name="expected_training" Type="varchar" Mode="In" />
+          <Parameter Name="expected_1" Type="varchar" Mode="In" />
+          <Parameter Name="expected_2" Type="varchar" Mode="In" />
+          <Parameter Name="expected_3" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="employee_name" Type="varchar" Mode="In" />
+          <Parameter Name="email_id" Type="varchar" Mode="In" />
+          <Parameter Name="current_skill" Type="varchar" Mode="In" />
+          <Parameter Name="expected_training" Type="varchar" Mode="In" />
+          <Parameter Name="expected_1" Type="varchar" Mode="In" />
+          <Parameter Name="expected_2" Type="varchar" Mode="In" />
+          <Parameter Name="expected_3" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspLogindetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="loginid" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Psno" Type="int" Mode="In" />
+          <Parameter Name="employee_name" Type="varchar" Mode="In" />
+          <Parameter Name="email_id" Type="varchar" Mode="In" />
+          <Parameter Name="current_skill" Type="varchar" Mode="In" />
+          <Parameter Name="expected_training" Type="varchar" Mode="In" />
+          <Parameter Name="expected_1" Type="varchar" Mode="In" />
+          <Parameter Name="expected_2" Type="varchar" Mode="In" />
+          <Parameter Name="expected_3" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="StepUpModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StepUpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Psno" />
+          </Key>
+          <Property Name="employee_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="current_skills" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="excepted_training" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="excepted_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="excepted_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="excepted_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Psno" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="StepUpContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="LoginUsers" EntityType="Self.LoginUser" />
+          <FunctionImport Name="uspAddEmployee">
+            <Parameter Name="Psno" Mode="In" Type="Int32" />
+            <Parameter Name="employee_name" Mode="In" Type="String" />
+            <Parameter Name="email_id" Mode="In" Type="String" />
+            <Parameter Name="current_skill" Mode="In" Type="String" />
+            <Parameter Name="expected_training" Mode="In" Type="String" />
+            <Parameter Name="expected_1" Mode="In" Type="String" />
+            <Parameter Name="expected_2" Mode="In" Type="String" />
+            <Parameter Name="expected_3" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteEmp">
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="employee_name" Mode="In" Type="String" />
+            <Parameter Name="email_id" Mode="In" Type="String" />
+            <Parameter Name="current_skill" Mode="In" Type="String" />
+            <Parameter Name="expected_training" Mode="In" Type="String" />
+            <Parameter Name="expected_1" Mode="In" Type="String" />
+            <Parameter Name="expected_2" Mode="In" Type="String" />
+            <Parameter Name="expected_3" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspLogin" ReturnType="Collection(StepUpModel.uspLogin_Result)">
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspLogindetails">
+            <Parameter Name="loginid" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateEmp">
+            <Parameter Name="Psno" Mode="In" Type="Int32" />
+            <Parameter Name="employee_name" Mode="In" Type="String" />
+            <Parameter Name="email_id" Mode="In" Type="String" />
+            <Parameter Name="current_skill" Mode="In" Type="String" />
+            <Parameter Name="expected_training" Mode="In" Type="String" />
+            <Parameter Name="expected_1" Mode="In" Type="String" />
+            <Parameter Name="expected_2" Mode="In" Type="String" />
+            <Parameter Name="expected_3" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Faculties" EntityType="StepUpModel.Faculty" />
+        </EntityContainer>
+        <ComplexType Name="uspLogin_Result">
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="PsNumber" />
+          </Key>
+          <Property Name="PsNumber" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Track" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StepUpModelStoreContainer" CdmEntityContainer="StepUpContext">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="StepUpModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Psno" ColumnName="Psno" />
+                <ScalarProperty Name="employee_name" ColumnName="employee_name" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="current_skills" ColumnName="current_skills" />
+                <ScalarProperty Name="excepted_training" ColumnName="excepted_training" />
+                <ScalarProperty Name="excepted_1" ColumnName="excepted_1" />
+                <ScalarProperty Name="excepted_2" ColumnName="excepted_2" />
+                <ScalarProperty Name="excepted_3" ColumnName="excepted_3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginUsers">
+            <EntityTypeMapping TypeName="StepUpModel.LoginUser">
+              <MappingFragment StoreEntitySet="LoginUser">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspAddEmployee" FunctionName="StepUpModel.Store.uspAddEmployee" />
+          <FunctionImportMapping FunctionImportName="uspDeleteEmp" FunctionName="StepUpModel.Store.uspDeleteEmp" />
+          <FunctionImportMapping FunctionImportName="uspLogin" FunctionName="StepUpModel.Store.uspLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StepUpModel.uspLogin_Result">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspLogindetails" FunctionName="StepUpModel.Store.uspLogindetails" />
+          <FunctionImportMapping FunctionImportName="uspUpdateEmp" FunctionName="StepUpModel.Store.uspUpdateEmp" />
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="StepUpModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="Track" ColumnName="Track" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PsNumber" ColumnName="PsNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

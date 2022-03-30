@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StepUpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Psno" />
+    </Key>
+    <Property Name="Psno" Type="int" Nullable="false" />
+    <Property Name="employee_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="current_skills" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="excepted_training" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="excepted_1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="excepted_2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="excepted_3" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="PsNumber" />
+    </Key>
+    <Property Name="PsNumber" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Track" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginUser">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="uspAddEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Psno" Type="int" Mode="In" />
+    <Parameter Name="employee_name" Type="varchar" Mode="In" />
+    <Parameter Name="email_id" Type="varchar" Mode="In" />
+    <Parameter Name="current_skill" Type="varchar" Mode="In" />
+    <Parameter Name="expected_training" Type="varchar" Mode="In" />
+    <Parameter Name="expected_1" Type="varchar" Mode="In" />
+    <Parameter Name="expected_2" Type="varchar" Mode="In" />
+    <Parameter Name="expected_3" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="uspDeleteEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+    <Parameter Name="employee_name" Type="varchar" Mode="In" />
+    <Parameter Name="email_id" Type="varchar" Mode="In" />
+    <Parameter Name="current_skill" Type="varchar" Mode="In" />
+    <Parameter Name="expected_training" Type="varchar" Mode="In" />
+    <Parameter Name="expected_1" Type="varchar" Mode="In" />
+    <Parameter Name="expected_2" Type="varchar" Mode="In" />
+    <Parameter Name="expected_3" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="uspLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="uspLogindetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="loginid" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="uspUpdateEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Psno" Type="int" Mode="In" />
+    <Parameter Name="employee_name" Type="varchar" Mode="In" />
+    <Parameter Name="email_id" Type="varchar" Mode="In" />
+    <Parameter Name="current_skill" Type="varchar" Mode="In" />
+    <Parameter Name="expected_training" Type="varchar" Mode="In" />
+    <Parameter Name="expected_1" Type="varchar" Mode="In" />
+    <Parameter Name="expected_2" Type="varchar" Mode="In" />
+    <Parameter Name="expected_3" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="StepUpModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
