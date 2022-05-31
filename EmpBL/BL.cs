@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace EmpBL
 {
-    public class BL
+    public class BL : IEmpBL
     {
         DAL dalObj;
         public BL()
         {
             dalObj = new DAL();
         }
-        public List<DTO> FetchEmpDetails()
+        public List<EmpDetailsDto> FetchEmpDetails()
         {
-            List<DTO> lstFetch = dalObj.GetEmpDetails();
+            List<EmpDetailsDto> lstFetch = dalObj.GetEmpDetails();
             return lstFetch;
         }
-        public int SaveAllEmp(DTO newEmp)
+        public int SaveAllEmp(EmpDetailsDto newEmp)
         {
             return dalObj.SaveEmp(newEmp);
 
@@ -34,7 +34,7 @@ namespace EmpBL
         {
             return dalObj.SignupPage(newLogin);
         }
-        public int Edit(DTO newEdit)
+        public int Edit(EmpDetailsDto newEdit)
         {
             return dalObj.EditEmp(newEdit);
         }
@@ -44,16 +44,19 @@ namespace EmpBL
             return dalObj.DeleteData(ID);
         }
 
-        public int Excel(DTO model)
+        public int Excel(EmpDetailsDto model)
         {
             return dalObj.SaveExcelEmp(model);
         }
 
-        public List<DTO> GetTraineeByPSNum(string traineePSNum)
-        { 
-           return dalObj.Search(traineePSNum);   
+        public List<EmpDetailsDto> GetTraineeBySearch(string traineePSNum)
+        {
+            return dalObj.Search(traineePSNum);
         }
-
+        public List<string> GetExpTrainingDetails()
+        {
+            return dalObj.GetExpTrainingDetails();
+        }
     }
 }
 

@@ -6,7 +6,7 @@
 @using (Html.BeginForm("Search", "Emp", FormMethod.Get))
 {
     <p style="text-align:left">
-        <h4>Find by PS number</h4> @Html.TextBox("PSnumber", ViewBag.CurrentFilter as string)
+        <h4>Search Records</h4> @Html.TextBox("PSnumber", ViewBag.CurrentFilter as string)
         <input type="submit" value="Search" class="btn btn-success" />
     </p>
 }
@@ -30,15 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.First().Expected_Training)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Expected_Training1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Expected_Training2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Expected_Training3)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -61,15 +52,6 @@
                 </td>
                 <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
                     @Html.DisplayFor(modelItem => item.Expected_Training)
-                </td>
-                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
-                    @Html.DisplayFor(modelItem => item.Expected_Training1)
-                </td>
-                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
-                    @Html.DisplayFor(modelItem => item.Expected_Training2)
-                </td>
-                <td style="padding-top:20px;padding-bottom:20px;padding-left:20px">
-                    @Html.DisplayFor(modelItem => item.Expected_Training3)
                 </td>
                 <td>
                     <div style="background-color: red; color: white; text-align: center; text-decoration: none; display: inline-block; ">

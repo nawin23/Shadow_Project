@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpMVC", "EmpMVC\EmpMVC.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpAPI", "EmpAPI\EmpAPI.csproj", "{BBA16A76-9545-49EF-8FC5-231F76C7559C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpAPITests", "EmpAPITests\EmpAPITests.csproj", "{B8E6078D-C2F0-4317-9125-0C707B7E335C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BBA16A76-9545-49EF-8FC5-231F76C7559C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBA16A76-9545-49EF-8FC5-231F76C7559C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBA16A76-9545-49EF-8FC5-231F76C7559C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E6078D-C2F0-4317-9125-0C707B7E335C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E6078D-C2F0-4317-9125-0C707B7E335C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E6078D-C2F0-4317-9125-0C707B7E335C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E6078D-C2F0-4317-9125-0C707B7E335C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

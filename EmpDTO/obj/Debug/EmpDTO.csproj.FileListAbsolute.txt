@@ -16,3 +16,9 @@ D:\orginal file\orginal\orginal\EmpDTO\obj\Debug\EmpDTO.csproj.AssemblyReference
 D:\orginal file\orginal\orginal\EmpDTO\obj\Debug\EmpDTO.csproj.CoreCompileInputs.cache
 D:\orginal file\orginal\orginal\EmpDTO\obj\Debug\EmpDTO.dll
 D:\orginal file\orginal\orginal\EmpDTO\obj\Debug\EmpDTO.pdb
+D:\orginal file\orginal final\orginal\EmpDTO\bin\Debug\EmpDTO.dll
+D:\orginal file\orginal final\orginal\EmpDTO\bin\Debug\EmpDTO.pdb
+D:\orginal file\orginal final\orginal\EmpDTO\obj\Debug\EmpDTO.csproj.AssemblyReference.cache
+D:\orginal file\orginal final\orginal\EmpDTO\obj\Debug\EmpDTO.csproj.CoreCompileInputs.cache
+D:\orginal file\orginal final\orginal\EmpDTO\obj\Debug\EmpDTO.dll
+D:\orginal file\orginal final\orginal\EmpDTO\obj\Debug\EmpDTO.pdb

@@ -104,7 +104,7 @@ namespace EmpMVC.Controllers
                 int res = blObj.Signup(dtoObj);
                 if (res == 1)
                 {
-                    return RedirectToAction("LoginDetails");
+                    return RedirectToAction("register");
                 }
                 else
                 {
@@ -122,6 +122,12 @@ namespace EmpMVC.Controllers
         }
 
         public ActionResult Invaild()
+        {
+            return View();
+
+        }
+
+        public ActionResult register()
         {
             return View();
 

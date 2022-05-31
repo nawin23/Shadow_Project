@@ -14,13 +14,10 @@ namespace EmpDAL
     
     public partial class Employee
     {
+        public int Psno { get; set; }
         public string employee_name { get; set; }
         public string email_id { get; set; }
         public string current_skills { get; set; }
         public string excepted_training { get; set; }
-        public string excepted_1 { get; set; }
-        public string excepted_2 { get; set; }
-        public string excepted_3 { get; set; }
-        public int Psno { get; set; }
     }
 }

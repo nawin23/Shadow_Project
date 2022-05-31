@@ -5,7 +5,7 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal" style="padding:3%;padding-left:20%">
+<div class="form-horizontal" style="padding:5%;padding-left:20%">
     <h2 style="padding-left: 23%; margin-bottom: 5%; font-family: 'Montserrat'; font-style: normal "><b>Add Employee</b></h2>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -71,42 +71,19 @@
 
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Expected_Training1, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Expected_Training1, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Expected Training 1" } })
-            @Html.ValidationMessageFor(model => model.Expected_Training1, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Expected_Training2, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Expected_Training2, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Expected Training2" } })
-            @Html.ValidationMessageFor(model => model.Expected_Training2, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Expected_Training3, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Expected_Training3, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Expected Training3" } })
-            @Html.ValidationMessageFor(model => model.Expected_Training3, "", new { @class = "text-danger" })
-        </div>
-    </div>
     <div style="color:red" class="text-center">
         <h5>@ViewBag.Message</h5>
     </div>
-
+    
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10" style="padding-left:10%">
             <input type="submit" value="Add Details" class="btn btn-success" />
-        </div><br />
 
+        </div><br />
+        &nbsp;
 
         <div>
-            <label style="margin-left:170px;margin-bottom:130px;font-family:'Segoe UI'">Back to list?</label>
+            <label style="margin-left:200px;margin-bottom:110px;font-family:'Segoe UI'">Back to list?</label>
 
             @Html.ActionLink("Back to List", "Fetch")
         </div>

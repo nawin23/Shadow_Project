@@ -222,6 +222,8 @@
     <Content Include="Views\Emp\Drop.cshtml" />
     <Content Include="Views\Emp\Delete.cshtml" />
     <Content Include="Views\Emp\dropsucces.cshtml" />
+    <Content Include="Views\Account\register.cshtml" />
+    <Content Include="Views\Emp\ExpTraRes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

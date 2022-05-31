@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace EmpDAL
 {
@@ -20,27 +21,21 @@ namespace EmpDAL
             conObj = new SqlConnection(ConfigurationManager.ConnectionStrings["StepUPstr"].ConnectionString);
             stepUpContext = new StepUpContext();
         }
-        public List<DTO> GetEmpDetails()
+        public List<EmpDetailsDto> GetEmpDetails()
         {
             try
             {
                 var res = stepUpContext.Employees.ToList();
-                List<DTO> lstEmp = new List<DTO>();
+                List<EmpDetailsDto> lstEmp = new List<EmpDetailsDto>();
                 foreach (var emp in res)
                 {
-                    lstEmp.Add(new DTO
+                    lstEmp.Add(new EmpDetailsDto
                     {
                         Psno = emp.Psno,
                         Employee_Name = emp.employee_name,
                         Email = emp.email_id,
                         Current_skill = emp.current_skills,
                         Expected_Training = emp.excepted_training,
-                        Expected_Training1 = emp.excepted_1,
-                        Expected_Training2 = emp.excepted_2,
-                        Expected_Training3 = emp.excepted_3,
-
-
-
                     });
 
                 }
@@ -53,10 +48,26 @@ namespace EmpDAL
             }
 
         }
+        public List<string> GetExpTrainingDetails()
+        {
+            try
+            {
+                var res = stepUpContext.Faculties.Select(t => t.Track).Distinct().ToList();
+                List<string> lstExpTra = new List<string>();
+                foreach (var emp in res)
+                {
+                    lstExpTra.Add(emp);
+                }
+                return lstExpTra;
+            }
+            catch (Exception ex)
+            {
 
-        
+                throw ex;
+            }
 
-        public int SaveEmp(DTO newEmp)
+        }
+        public int SaveEmp(EmpDetailsDto newEmp)
         {
             try
             {
@@ -69,9 +80,6 @@ namespace EmpDAL
                 cmdObj.Parameters.AddWithValue(@"email_id", newEmp.Email);
                 cmdObj.Parameters.AddWithValue(@"current_skill", newEmp.Current_skill);
                 cmdObj.Parameters.AddWithValue(@"expected_training", newEmp.Expected_Training);
-                cmdObj.Parameters.AddWithValue(@"expected_1", newEmp.Expected_Training1);
-                cmdObj.Parameters.AddWithValue(@"expected_2", newEmp.Expected_Training2);
-                cmdObj.Parameters.AddWithValue(@"expected_3", newEmp.Expected_Training3);
                 SqlParameter retObj = new SqlParameter();
                
                 retObj.Direction = ParameterDirection.ReturnValue;
@@ -89,7 +97,7 @@ namespace EmpDAL
             }
 
         }
-        public int EditEmp(DTO newEdit)
+        public int EditEmp(EmpDetailsDto newEdit)
         {
             try
             {
@@ -102,9 +110,7 @@ namespace EmpDAL
                 cmdObj.Parameters.AddWithValue(@"email_id", newEdit.Email);
                 cmdObj.Parameters.AddWithValue(@"current_skill", newEdit.Current_skill);
                 cmdObj.Parameters.AddWithValue(@"expected_training", newEdit.Expected_Training);
-                cmdObj.Parameters.AddWithValue(@"expected_1", newEdit.Expected_Training1);
-                cmdObj.Parameters.AddWithValue(@"expected_2", newEdit.Expected_Training2);
-                cmdObj.Parameters.AddWithValue(@"expected_3", newEdit.Expected_Training3);
+               
                 SqlParameter retObj = new SqlParameter();
                 retObj.Direction = ParameterDirection.ReturnValue;
                 retObj.SqlDbType = SqlDbType.Int;
@@ -135,9 +141,7 @@ namespace EmpDAL
                 cmd.Parameters.AddWithValue(@"email_id", "");
                 cmd.Parameters.AddWithValue(@"current_skills", "");
                 cmd.Parameters.AddWithValue(@"excepted_training", "");
-                cmd.Parameters.AddWithValue(@"excepted_1", "");
-                cmd.Parameters.AddWithValue(@"excepted_2", "");
-                cmd.Parameters.AddWithValue(@"excepted_3", "");
+              
                 cmd.Parameters.AddWithValue(@"Query", 3);
                 con.Open();
                 result = cmd.ExecuteNonQuery();
@@ -204,7 +208,7 @@ namespace EmpDAL
             }
         }
 
-        public int SaveExcelEmp(DTO model)
+        public int SaveExcelEmp(EmpDetailsDto model)
         {
             try
             {
@@ -217,9 +221,7 @@ namespace EmpDAL
                 cmdObj.Parameters.AddWithValue(@"email_id", model.Email);
                 cmdObj.Parameters.AddWithValue(@"current_skill", model.Current_skill);
                 cmdObj.Parameters.AddWithValue(@"expected_training", model.Expected_Training);
-                cmdObj.Parameters.AddWithValue(@"expected_1", model.Expected_Training1);
-                cmdObj.Parameters.AddWithValue(@"expected_2", model.Expected_Training2);
-                cmdObj.Parameters.AddWithValue(@"expected_3", model.Expected_Training3);
+                
                 SqlParameter retObj = new SqlParameter();
 
                 retObj.Direction = ParameterDirection.ReturnValue;
@@ -243,13 +245,13 @@ namespace EmpDAL
 
         }
 
-        public List<DTO> Search(string PSnumber)
+        public List<EmpDetailsDto> Search(string PSnumber)
         {
-            var result = stepUpContext.Employees.Where(w => (w.Psno+w.employee_name + w.email_id + w.current_skills + w.excepted_training + w.excepted_1  ).ToString().Contains(PSnumber)).ToList();
-            List<DTO> lstOftrainee = new List<DTO>();
+            var result = stepUpContext.Employees.Where(w => (w.Psno+w.employee_name + w.email_id + w.current_skills + w.excepted_training   ).ToString().Contains(PSnumber)).ToList();
+            List<EmpDetailsDto> lstOftrainee = new List<EmpDetailsDto>();
             foreach (var Trainee in result)
             {
-                lstOftrainee.Add(new DTO()
+                lstOftrainee.Add(new EmpDetailsDto()
                 {
 
                     Psno = Trainee.Psno,
@@ -257,9 +259,7 @@ namespace EmpDAL
                     Email = Trainee.email_id,
                     Current_skill = Trainee.current_skills,
                     Expected_Training = Trainee.excepted_training,
-                    Expected_Training1 = Trainee.excepted_1,
-                    Expected_Training2 = Trainee.excepted_2,
-                    Expected_Training3 = Trainee.excepted_3,
+                   
                 });
 
             }

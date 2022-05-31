@@ -27,11 +27,43 @@ namespace EmpDAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Auth> Auths { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<LoginUser> LoginUsers { get; set; }
         public virtual DbSet<Faculty> Faculties { get; set; }
+        public virtual DbSet<GEAUser> GEAUsers { get; set; }
+        public virtual DbSet<LoginUser> LoginUsers { get; set; }
     
-        public virtual int uspAddEmployee(Nullable<int> psno, string employee_name, string email_id, string current_skill, string expected_training, string expected_1, string expected_2, string expected_3)
+        public virtual ObjectResult<string> Usp_InsertUpdateDelete_Customer(Nullable<int> psno, string employee_name, string email_id, string current_skills, string excepted_training, Nullable<int> query)
+        {
+            var psnoParameter = psno.HasValue ?
+                new ObjectParameter("Psno", psno) :
+                new ObjectParameter("Psno", typeof(int));
+    
+            var employee_nameParameter = employee_name != null ?
+                new ObjectParameter("employee_name", employee_name) :
+                new ObjectParameter("employee_name", typeof(string));
+    
+            var email_idParameter = email_id != null ?
+                new ObjectParameter("email_id", email_id) :
+                new ObjectParameter("email_id", typeof(string));
+    
+            var current_skillsParameter = current_skills != null ?
+                new ObjectParameter("current_skills", current_skills) :
+                new ObjectParameter("current_skills", typeof(string));
+    
+            var excepted_trainingParameter = excepted_training != null ?
+                new ObjectParameter("excepted_training", excepted_training) :
+                new ObjectParameter("excepted_training", typeof(string));
+    
+            var queryParameter = query.HasValue ?
+                new ObjectParameter("Query", query) :
+                new ObjectParameter("Query", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Usp_InsertUpdateDelete_Customer", psnoParameter, employee_nameParameter, email_idParameter, current_skillsParameter, excepted_trainingParameter, queryParameter);
+        }
+    
+        public virtual int uspAddEmployee(Nullable<int> psno, string employee_name, string email_id, string current_skill, string expected_training)
         {
             var psnoParameter = psno.HasValue ?
                 new ObjectParameter("Psno", psno) :
@@ -53,19 +85,7 @@ namespace EmpDAL
                 new ObjectParameter("expected_training", expected_training) :
                 new ObjectParameter("expected_training", typeof(string));
     
-            var expected_1Parameter = expected_1 != null ?
-                new ObjectParameter("expected_1", expected_1) :
-                new ObjectParameter("expected_1", typeof(string));
-    
-            var expected_2Parameter = expected_2 != null ?
-                new ObjectParameter("expected_2", expected_2) :
-                new ObjectParameter("expected_2", typeof(string));
-    
-            var expected_3Parameter = expected_3 != null ?
-                new ObjectParameter("expected_3", expected_3) :
-                new ObjectParameter("expected_3", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspAddEmployee", psnoParameter, employee_nameParameter, email_idParameter, current_skillParameter, expected_trainingParameter, expected_1Parameter, expected_2Parameter, expected_3Parameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspAddEmployee", psnoParameter, employee_nameParameter, email_idParameter, current_skillParameter, expected_trainingParameter);
         }
     
         public virtual int uspDeleteEmp(string username, string employee_name, string email_id, string current_skill, string expected_training, string expected_1, string expected_2, string expected_3)
@@ -131,7 +151,7 @@ namespace EmpDAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspLogindetails", loginidParameter, passwordParameter);
         }
     
-        public virtual int uspUpdateEmp(Nullable<int> psno, string employee_name, string email_id, string current_skill, string expected_training, string expected_1, string expected_2, string expected_3)
+        public virtual int uspUpdateEmp(Nullable<int> psno, string employee_name, string email_id, string current_skill, string expected_training)
         {
             var psnoParameter = psno.HasValue ?
                 new ObjectParameter("Psno", psno) :
@@ -153,19 +173,9 @@ namespace EmpDAL
                 new ObjectParameter("expected_training", expected_training) :
                 new ObjectParameter("expected_training", typeof(string));
     
-            var expected_1Parameter = expected_1 != null ?
-                new ObjectParameter("expected_1", expected_1) :
-                new ObjectParameter("expected_1", typeof(string));
-    
-            var expected_2Parameter = expected_2 != null ?
-                new ObjectParameter("expected_2", expected_2) :
-                new ObjectParameter("expected_2", typeof(string));
-    
-            var expected_3Parameter = expected_3 != null ?
-                new ObjectParameter("expected_3", expected_3) :
-                new ObjectParameter("expected_3", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateEmp", psnoParameter, employee_nameParameter, email_idParameter, current_skillParameter, expected_trainingParameter, expected_1Parameter, expected_2Parameter, expected_3Parameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateEmp", psnoParameter, employee_nameParameter, email_idParameter, current_skillParameter, expected_trainingParameter);
         }
+
+        //public System.Data.Entity.DbSet<EmpMVC.Models.EmpEditModel> EmpEditModels { get; set; }
     }
 }

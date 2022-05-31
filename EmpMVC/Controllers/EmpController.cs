@@ -47,7 +47,7 @@ namespace EmpMVC.Controllers
             {
                 bool Status;
                 string message;
-                List<DTO> lstEmp = blObj.FetchEmpDetails();
+                List<EmpDetailsDto> lstEmp = blObj.FetchEmpDetails();
                 List<EmpFetchMVC> empMvc = new List<EmpFetchMVC>();
                 foreach (var emp in lstEmp)
                 {
@@ -57,9 +57,7 @@ namespace EmpMVC.Controllers
                     lstMvc.Email = emp.Email;
                     lstMvc.Current_skill = emp.Current_skill;
                     lstMvc.Expected_Training = emp.Expected_Training;
-                    lstMvc.Expected_Training1 = emp.Expected_Training1;
-                    lstMvc.Expected_Training2 = emp.Expected_Training2;
-                    lstMvc.Expected_Training3 = emp.Expected_Training3;
+                    
                     empMvc.Add(lstMvc);
                 }
 
@@ -92,15 +90,13 @@ namespace EmpMVC.Controllers
             {
                 bool Status;
                 string message;
-                DTO dtoObj = new DTO();
+                EmpDetailsDto dtoObj = new EmpDetailsDto();
                 dtoObj.Psno = saveObj.Psno;
                 dtoObj.Employee_Name = saveObj.Employee_Name;
                 dtoObj.Email = saveObj.Email;
                 dtoObj.Current_skill = saveObj.Current_skill;
                 dtoObj.Expected_Training = saveObj.Expected_Training;
-                dtoObj.Expected_Training1 = saveObj.Expected_Training1;
-                dtoObj.Expected_Training2 = saveObj.Expected_Training2;
-                dtoObj.Expected_Training3 = saveObj.Expected_Training3;
+                
                 TempData["Trainee"] = dtoObj.Expected_Training.ToString();
                 TempData["ps"]=dtoObj.Psno.ToString();
                 TempData["name"]=dtoObj.Employee_Name;
@@ -150,17 +146,18 @@ namespace EmpMVC.Controllers
         {
             try
             {
-                DTO dtoObj = new DTO();
+                EmpDetailsDto dtoObj = new EmpDetailsDto();
                 dtoObj.Psno = saveObj.Psno;
                 dtoObj.Employee_Name = saveObj.Employee_Name;
                 dtoObj.Email = saveObj.Email;
                 dtoObj.Current_skill = saveObj.Current_skill;
                 dtoObj.Expected_Training = saveObj.Expected_Training;
-                dtoObj.Expected_Training1 = saveObj.Expected_Training1;
-                dtoObj.Expected_Training2 = saveObj.Expected_Training2;
-                dtoObj.Expected_Training3 = saveObj.Expected_Training3;
+
+                //List<string> expTraLst = blObj.GetExpTrainingDetails();
+                //ViewBag.Expected_Training = expTraLst;
 
                 int res = blObj.Edit(dtoObj);
+
                 if (res == 1)
                 {
                     return RedirectToAction("Succes");
@@ -169,7 +166,6 @@ namespace EmpMVC.Controllers
                 {
                     ViewBag.Message = "PS Number Entered is not Exist!";
                     return View("Error");
-
                 }
 
             }
@@ -181,6 +177,19 @@ namespace EmpMVC.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult ExpTraRes()
+        {
+            List<string> expTraLst = blObj.GetExpTrainingDetails();
+            List<string> traLst = new List<string>();
+            foreach(var expTra in expTraLst)
+            {
+                traLst.Add(expTra);
+            }
+            //ViewBag.ExpTraLst = traLst;
+          
+            return View(traLst);
+        }
         [HttpGet]
         public ActionResult DeleteMvc()
         {
@@ -199,7 +208,7 @@ namespace EmpMVC.Controllers
         public void SendEmail(EmpFetchMVC saveObj)
         {
 
-            var fromEmail = new MailAddress("gtpolo110@gmail.com", "GEA Portal");
+            var fromEmail = new MailAddress("tantacopper@gmail.com", "GEA Portal");
             var toEmail = new MailAddress(saveObj.Email);
             var fromEmailPassword = "oleeolee45";
             string subject = "New Employee added";
@@ -210,10 +219,7 @@ namespace EmpMVC.Controllers
                 "<br></br>" + "Email ID:  " + saveObj.Email + "<br></br>" +
                 "Employee Name: " + saveObj.Employee_Name + "<br></br>" +
                 "Current Skills: " + saveObj.Current_skill + "<br></br>" +
-                "Expected Training: " + saveObj.Expected_Training + "<br></br>" +
-                "Expected Training 1: " + saveObj.Expected_Training1 + "<br></br>" +
-                "Expected Training 2: " + saveObj.Expected_Training2 + "<br></br>" +
-                "Expected Training 3: " + saveObj.Expected_Training3 + "<br></br>";
+                "Expected Training: " + saveObj.Expected_Training + "<br></br>";
 
 
 
@@ -279,7 +285,8 @@ namespace EmpMVC.Controllers
                             foreach (IXLCell cell in row.Cells(readRange))
                             {
                                 dt.Columns.Add(cell.Value.ToString());
-
+                                
+                                //ViewBag.Message = "Excel File  Uploaded Sucessfully";
                             }
                             FirstRow = false;
                         }
@@ -293,6 +300,8 @@ namespace EmpMVC.Controllers
                             {
                                 dt.Rows[dt.Rows.Count - 1][cellIndex] = cell.Value.ToString();
                                 cellIndex++;
+                                //return View("Succes");
+                                ViewBag.Message = "Excel File  Uploaded Sucessfully";
                             }
                         }
                     }
@@ -325,9 +334,17 @@ namespace EmpMVC.Controllers
                         bulk.ColumnMappings.Add(i, i);
                     }
 
-                    con.Open();
-                    bulk.WriteToServer(dt);
-                    con.Close();
+                    try
+                    {
+                        con.Open();
+                        bulk.WriteToServer(dt);
+                        con.Close();
+                    }
+                    catch (Exception)
+                    {
+                        ViewBag.Message = "Please remove duplicate value and try again";
+                        
+                    }
                 }
 
 
@@ -344,11 +361,11 @@ namespace EmpMVC.Controllers
 
         }
         [HttpGet]
-        public ActionResult Search(string PSnumber)
+        public ActionResult Search(string inputData)
         {
             try
             {
-                List<DTO> trainee = blObj.GetTraineeByPSNum(PSnumber);
+                List<EmpDetailsDto> trainee = blObj.GetTraineeBySearch(inputData);
                 List<EmpFetchMVC> searchmvc = new List<EmpFetchMVC>();
                 foreach (var emp in trainee)
                 {
@@ -358,9 +375,7 @@ namespace EmpMVC.Controllers
                     lstMvc.Email = emp.Email;
                     lstMvc.Current_skill = emp.Current_skill;
                     lstMvc.Expected_Training = emp.Expected_Training;
-                    lstMvc.Expected_Training1 = emp.Expected_Training1;
-                    lstMvc.Expected_Training2 = emp.Expected_Training2;
-                    lstMvc.Expected_Training3 = emp.Expected_Training3;
+                    
                     searchmvc.Add(lstMvc);
                 }
                 return View(searchmvc);
@@ -428,7 +443,7 @@ namespace EmpMVC.Controllers
             string name = TempData["name"].ToString();
             string skill = TempData["exp"].ToString();
 
-            var fromEmail = new MailAddress("gtpolo110@gmail.com", "GEA Portal");
+            var fromEmail = new MailAddress("tantacopper@gmail.com", "GEA Portal");
             var toEmail = new MailAddress(eml);
             var fromEmailPassword = "oleeolee45";
             string subject = "New Trainee Enrolled for " +skill ;

@@ -54,3 +54,16 @@ D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.CoreCompile
 D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.csproj.CopyComplete
 D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.dll
 D:\orginal file\orginal final\orginal\EmpDAL\obj\Debug\EmpDAL.pdb
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.Helpers.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.Mvc.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.Razor.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.WebPages.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.Helpers.xml
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.Mvc.xml
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.Razor.xml
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.WebPages.xml
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\orginal file\orginal final\orginal\EmpDAL\bin\Debug\System.Web.WebPages.Razor.xml

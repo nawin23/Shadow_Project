@@ -1,17 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="StepUpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminPsnumber" />
+    </Key>
+    <Property Name="AdminPsnumber" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Auth">
+    <Key>
+      <PropertyRef Name="Ps_number" />
+    </Key>
+    <Property Name="Ps_number" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="Employee">
     <Key>
       <PropertyRef Name="Psno" />
     </Key>
+    <Property Name="Psno" Type="Int32" Nullable="false" />
     <Property Name="employee_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="current_skills" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="excepted_training" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="excepted_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="excepted_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="excepted_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Psno" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="PsNumber" />
+    </Key>
+    <Property Name="PsNumber" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Track" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GEAUser">
+    <Key>
+      <PropertyRef Name="GEAPsNumber" />
+    </Key>
+    <Property Name="GEAPsNumber" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="LoginUser">
     <Key>
@@ -21,17 +49,26 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityContainer Name="StepUpContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Auths" EntityType="Self.Auth" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+    <EntitySet Name="GEAUsers" EntityType="Self.GEAUser" />
     <EntitySet Name="LoginUsers" EntityType="Self.LoginUser" />
+    <FunctionImport Name="Usp_InsertUpdateDelete_Customer" ReturnType="Collection(String)">
+      <Parameter Name="Psno" Mode="In" Type="Int32" />
+      <Parameter Name="employee_name" Mode="In" Type="String" />
+      <Parameter Name="email_id" Mode="In" Type="String" />
+      <Parameter Name="current_skills" Mode="In" Type="String" />
+      <Parameter Name="excepted_training" Mode="In" Type="String" />
+      <Parameter Name="Query" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="uspAddEmployee">
       <Parameter Name="Psno" Mode="In" Type="Int32" />
       <Parameter Name="employee_name" Mode="In" Type="String" />
       <Parameter Name="email_id" Mode="In" Type="String" />
       <Parameter Name="current_skill" Mode="In" Type="String" />
       <Parameter Name="expected_training" Mode="In" Type="String" />
-      <Parameter Name="expected_1" Mode="In" Type="String" />
-      <Parameter Name="expected_2" Mode="In" Type="String" />
-      <Parameter Name="expected_3" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="uspDeleteEmp">
       <Parameter Name="Username" Mode="In" Type="String" />
@@ -57,23 +94,10 @@
       <Parameter Name="email_id" Mode="In" Type="String" />
       <Parameter Name="current_skill" Mode="In" Type="String" />
       <Parameter Name="expected_training" Mode="In" Type="String" />
-      <Parameter Name="expected_1" Mode="In" Type="String" />
-      <Parameter Name="expected_2" Mode="In" Type="String" />
-      <Parameter Name="expected_3" Mode="In" Type="String" />
     </FunctionImport>
-    <EntitySet Name="Faculties" EntityType="StepUpModel.Faculty" />
   </EntityContainer>
   <ComplexType Name="uspLogin_Result">
     <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
   </ComplexType>
-  <EntityType Name="Faculty">
-    <Key>
-      <PropertyRef Name="PsNumber" />
-    </Key>
-    <Property Name="PsNumber" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Track" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
 </Schema>
